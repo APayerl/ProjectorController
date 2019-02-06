@@ -25,6 +25,7 @@ import se.payerl.projectorcontroller.SerialHelper.Helper;
 import se.payerl.projectorcontroller.SerialHelper.Enums.DataBits;
 import se.payerl.projectorcontroller.SerialHelper.Enums.Parity;
 import se.payerl.projectorcontroller.SerialHelper.Enums.StopBits;
+import se.payerl.projectorcontroller.SerialHelper.Interfaces.Message;
 import se.payerl.projectorcontroller.benq.Generic;
 
 public class W1070 extends Projector {
@@ -34,14 +35,20 @@ public class W1070 extends Projector {
 	}
 	
 	public void turnOn() {
-		super.queueMessage(Generic.Power.ON, 1, (command, reply) -> {
+		super.queueMessage(Generic.Power.ON, ">", (command, reply) -> {
 			System.out.println("Sent: '" + command + "' received reply: '" + reply + "'");
+			return true;
 		});
 	}
 
 	public void turnOff() {
-		super.queueMessage(Generic.Power.OFF, 1, (command, reply) -> {
+		super.queueMessage(Generic.Power.OFF, ">", (command, reply) -> {
 			System.out.println("Sent: '" + command + "' received reply: '" + reply + "'");
+			return true;
 		});
+	}
+	
+	public void runCommand(String mcommand, Message callback) {
+		super.queueMessage(mcommand, ">", 1, callback);
 	}
 }

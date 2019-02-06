@@ -19,16 +19,18 @@ package se.payerl.projectorcontroller.SerialHelper;
 import se.payerl.projectorcontroller.SerialHelper.Interfaces.Message;
 
 public class SendQueueElement {
-	public SendQueueElement(String message, int linesToReturn, Message callback) {
+	public SendQueueElement(String message, String characters, int numberOfReplys, Message callback) {
 		this.message = message;
-		this.numberOfReplys = linesToReturn;
 		this.replyCallback = callback;
+		this.responseCharacters = characters;
+		this.numberOfReplys = numberOfReplys;
 	}
 	
 	@SuppressWarnings("unused")
 	private SendQueueElement() {}
 	
 	public String message;
-	public int numberOfReplys;
 	public Message replyCallback;
+	public String responseCharacters;
+	public int numberOfReplys;
 }

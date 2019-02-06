@@ -42,7 +42,7 @@ public class Helper {
 		this.sendQueue.push(sqe);
 	}
 	
-	public String stringToHex(String message) {
+	public static String stringToHex(String message) {
 	    char[] ch = message.toCharArray();
 	    StringBuilder builder = new StringBuilder();
 	    for (char c : ch) {
