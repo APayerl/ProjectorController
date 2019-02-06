@@ -56,7 +56,7 @@ public class SerialWriter extends Thread implements SerialPortEventListener {
 			while(controlObject.keepGoing || !queue.isEmpty()) {
 				if(!this.queue.isEmpty()) {
 					try {
-						os.write(this.queue.pop().message);
+						os.write(this.queue.pop().message.getBytes(this.charset));
 //						System.out.println("Time to read");
 //						while((line = br.readLine()) != null) {
 //							//System.out.println("|" + line + "|");

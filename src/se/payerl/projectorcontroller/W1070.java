@@ -34,14 +34,14 @@ public class W1070 extends Projector {
 	}
 	
 	public void turnOn() {
-		super.queueMessage(Generic.Power.ON.getBytes(StandardCharsets.US_ASCII), 1, reply -> {
-			System.out.println("Yay we turned on the projector!");
+		super.queueMessage(Generic.Power.ON, 1, (command, reply) -> {
+			System.out.println("Sent: '" + command + "' received reply: '" + reply + "'");
 		});
 	}
 
 	public void turnOff() {
-		super.queueMessage(Generic.Power.OFF.getBytes(StandardCharsets.US_ASCII), 1, reply -> {
-			System.out.println("Yay we turned off the projector!");
+		super.queueMessage(Generic.Power.OFF, 1, (command, reply) -> {
+			System.out.println("Sent: '" + command + "' received reply: '" + reply + "'");
 		});
 	}
 }

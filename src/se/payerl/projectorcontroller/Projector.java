@@ -40,7 +40,7 @@ public abstract class Projector {
 //		this.helper = h;
 //	}
 	
-	public void queueMessage(byte[] message, int replys, Message callback) {
+	public void queueMessage(String message, int replys, Message callback) {
 		this.queueMessage(new SendQueueElement(message, replys, callback));
 	}
 	

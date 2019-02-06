@@ -38,11 +38,6 @@ public class SerialManager {
 	private CommPortIdentifier portIdentifier;
 	private CommPort commPort;
 	
-//	public SerialManager(String portName, int baudRate, DataBits dataBits, StopBits stopBits, Parity parity, MessageQueue<SendQueueElement> queue) throws NoSuchPortException, PortInUseException, UnsupportedCommOperationException {
-//		this.myQueue = queue;
-//		serialPort = connect(portName, baudRate, dataBits, stopBits, parity);
-//	}
-	
 	public SerialManager(String portName, int baudRate, DataBits dataBits, StopBits stopBits, Parity parity, MessageQueue<SendQueueElement> queue, Charset charset) throws NoSuchPortException, PortInUseException, UnsupportedCommOperationException {
 		this.myQueue = queue;
 		serialPort = connect(portName, baudRate, dataBits, stopBits, parity, charset);
@@ -50,7 +45,6 @@ public class SerialManager {
 
 	public void disconnect() {
 		controlObject.keepGoing = false;
-//		commPort.close();
 	}
 	
 	public SerialPort connect(String portName, int baudRate, DataBits dataBits, StopBits stopBits, Parity parity, Charset charset) throws NoSuchPortException, gnu.io.PortInUseException, UnsupportedCommOperationException

@@ -17,6 +17,5 @@
 package se.payerl.projectorcontroller.SerialHelper.Interfaces;
 
 public interface Message {
-	public void newMessage(String message);
 	public void newReply(String originalMessage, String reply);
 }
