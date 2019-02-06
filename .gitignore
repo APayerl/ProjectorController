@@ -1,5 +1,9 @@
 .classpath
 .project
-bin/
-.settings/
-.git/
+bin/*
+.settings/*
+.git/*
+
+*.class
+*.log
+*.jar
